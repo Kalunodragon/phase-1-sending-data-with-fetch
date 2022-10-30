@@ -1,7 +1,7 @@
 // Add your code here
 
 function submitData(name, email){
-    fetch('http://localhost:3000/users', {
+    return fetch('http://localhost:3000/users', {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -15,6 +15,11 @@ function submitData(name, email){
     .then(function (response) {
         return response.json()
     })
-    .then(data => document.body.innerHTML = data.id)
-    .catch(error => document.append(error))
+    .then(function (data) {
+        return document.body.innerHTML = data.id
+    })
+    .catch(function (obj) {
+        return document.body.innerHTML = obj
+    })
+
 }
